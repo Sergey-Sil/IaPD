@@ -39,13 +39,12 @@ namespace Getting_WIFI_Networks
 
         public string GetMAC()
         {
-            StringBuilder builder = new StringBuilder();
-            builder.Append("MAC: ");
+            string mac = "MAC: ";
             foreach (var symbol in MAC)
             {
-                builder.Append(symbol + "\r\n");
+                mac += symbol + "\r\n";
             }
-            return builder.ToString();
+            return mac;
         }
     }
 }
