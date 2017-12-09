@@ -44,14 +44,14 @@ namespace Getting_WIFI_Networks
 
         private string MACToString(Wlan.WlanBssEntry entry)
         {
-            StringBuilder MACBuilder = new StringBuilder();
+            string mac = "";
             foreach (byte mByte in entry.dot11Bssid)
             {
-                MACBuilder.Append(mByte.ToString("X"));
-                MACBuilder.Append("-");
+                mac += mByte.ToString("X");
+                mac += "-";
             }
-            MACBuilder.Remove(MACBuilder.Length - 1, 1);
-            return MACBuilder.ToString();
+            mac.Remove(mac.Length - 1, 1);
+            return mac;
         }
     }
 }
