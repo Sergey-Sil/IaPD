@@ -28,21 +28,18 @@ namespace Laba_8
 
         private void KeyEvent(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.A)
-            {
-                a_key_pressed = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
-            }
-            int cur_time = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
-            if (cur_time - a_key_pressed <= 2)
-            {
-                e.Handled = true;
-            }
+            
             if (_settings.IsHooks)
             {
-                if (e.KeyData == (Keys.Shift | Keys.Tab))
-                {
-                    Process.Start("calc.exe");
-                }
+                if (e.KeyData == Keys.A)
+				{
+					a_key_pressed = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+				}
+				int cur_time = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
+				if (cur_time - a_key_pressed <= 2)
+				{
+					e.Handled = true;
+				}
                 _logger.KeyLogger(e.KeyData.ToString());
             }
             if (e.KeyData == (Keys.Control | Keys.Shift | Keys.Tab))
